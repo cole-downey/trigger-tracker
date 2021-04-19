@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-After pulling the code, run `npm install` and then run `npm install react-rating-stars-component --save`
+After pulling the code, run `npm install` whenever there are new packages added that you don't have
 
 ## Available Scripts
 
