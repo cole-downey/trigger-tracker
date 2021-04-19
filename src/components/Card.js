@@ -12,7 +12,7 @@ export const MovieCard = (props) => {
             <Card className="card">
                 <CardContent style={{ height: "100%" }}>
                     <Grid container alignItems="stretch" style={{ height: "100%" }}>
-                        <Grid container spacing="6" alignItems="center">
+                        <Grid container spacing="4" alignItems="center">
                             <Grid item>
                                 <img width={120} className="poster"
                                 src={pictureUrl} alt={"movie poster for " + title} 

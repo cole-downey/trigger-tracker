@@ -1,13 +1,12 @@
 .card {
-    background-color: #7dbdbb;
-    padding: 1em;
-    padding-left: 2em;
+    background-color: #90C2D2;
+    padding: 0.5em;
     height: 100%;
-    border: 3px solid #363636;
+    border: 3px solid #648e9c;
 }
 
 .poster {
-    border: 3px solid #363636;
+    border: 3px solid #648e9c;
     border-radius: 5px;
 }
 

@@ -15,7 +15,7 @@ function App() {
     <StylesProvider injectFirst>
       <CssBaseline />
       <Router>
-        {<div><h1>Movie Photosensitivity Review Website</h1>
+        {<div><h1>Trigger Tracker: A Movie Photosensitivity Review Site</h1>
           </div>}
         <Switch>
           <Route exact path={'/'} >
