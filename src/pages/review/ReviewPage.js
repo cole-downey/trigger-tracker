@@ -45,6 +45,11 @@ const ReviewPage = (props) => {
                     </Button>
                 </Grid>
             </Grid>
+            <Grid container item
+                xs={12} md={12} lg={10}
+            >
+                {/* Add list of user reviews here */}
+            </Grid>
         </Grid>
     )
 
