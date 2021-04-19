@@ -2,17 +2,16 @@
     background-color: #90C2D2;
     padding: 0.5em;
     height: 100%;
-    border: 3px solid #648e9c;
+    border: 3px solid #527480;
 }
 
 .poster {
-    border: 3px solid #648e9c;
+    border: 3px solid #527480;
     border-radius: 5px;
 }
 
 .card-text {
     font-size: 0.75rem;
-    color: #363636;
 }
 .card-title {
     font-size: 1.0rem;
