@@ -41,6 +41,7 @@ const ReviewPage = (props) => {
                           <ReactStars
                             count={5}
                             value={averageScore}
+                            edit={false}
                             onChange={ratingChanged}
                             size={36}
                             isHalf={true}
