@@ -1,6 +1,7 @@
 import React from 'react';
 import { Grid, Button } from '@material-ui/core';
 import { Link } from 'react-router-dom';
+import ReactStars from "react-rating-stars-component";
 import CreateIcon from '@material-ui/icons/Create';
 import './ReviewPage.css';
 
@@ -9,6 +10,8 @@ const ReviewPage = (props) => {
     // to see what data is available or add more, check pages/home/movie-data.js
     // access members in data here:
     const [title, description, url, averageScore, pictureUrl, timestamps, length] = [data.title, data.description, data.url, data.averageScore, data.pictureUrl, data.timestamps, data.length];
+    const ratingChanged = (newRating) => {console.log(newRating);};
+
     return (
         <Grid container justify="center" style={{ marginTop: '5em' }} >
             <Grid container item
@@ -30,10 +33,27 @@ const ReviewPage = (props) => {
                     ))}
                 </Grid>
                 <Grid item xs={3} container direction="column" justify="space-evenly">
-                    <Grid item>
+                    <Grid item style={{display: "inline-block", textAlign: "center"}}>
                         <h2>Photosensitivity Review:</h2>
                         <h1> {averageScore}/5</h1>
+
+                        <div style={{display: "inline-block", textAlign: "center"}}>
+                          <ReactStars
+                            count={5}
+                            value={averageScore}
+                            onChange={ratingChanged}
+                            size={36}
+                            isHalf={true}
+                            char={"★"}
+                            emptyIcon={<i className='far fa-star'></i>}
+                            halfIcon={<i className='fa fa-star-half-alt'></i>}
+                            fullIcon={<i className='fa fa-star'></i>}
+                            activeColor='#ffff00'
+                          />
+                        </div>
+
                     </Grid>
+
                     <Grid item></Grid>
                     <Button component={Link} to={url + "/form"}
                         disableElevation
