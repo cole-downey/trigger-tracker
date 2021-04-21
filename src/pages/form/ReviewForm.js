@@ -40,8 +40,10 @@ const ReviewForm = (props) => {
                             emptyIcon={<i className='far fa-star'></i>}
                             halfIcon={<i className='fa fa-star-half-alt'></i>}
                             fullIcon={<i className='fa fa-star'></i>}
+                            color='#527480'
+                            activeColor='#fafafa'
                             activeColor='#ffff00'
-                          />
+                            />
                         </div>
                       </Grid>
                       <Grid item>
@@ -58,8 +60,9 @@ const ReviewForm = (props) => {
                             emptyIcon={<i className='far fa-star'></i>}
                             halfIcon={<i className='fa fa-star-half-alt'></i>}
                             fullIcon={<i className='fa fa-star'></i>}
+                            color='#527480'
                             activeColor='#ffff00'
-                          />
+                            />
                         </div>
                       </Grid>
                       <Grid item>
