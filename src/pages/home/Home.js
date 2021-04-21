@@ -14,6 +14,12 @@ const SearchField = withStyles({
         '& label.Mui-focused': {
             color: '#363636',
         },
+        '& .MuiOutlinedInput-input': {
+            color: '#363636',
+            '&::placeholder': {
+              opacity: '85%',
+            },
+          },
         '& .MuiOutlinedInput-root': {
             '& fieldset': {
                 border: '2px solid #527480',

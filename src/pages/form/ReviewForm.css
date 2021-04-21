@@ -6,8 +6,9 @@ h1 {
   text-align: center;
 }
 h2 {
+  margin-left: 1em;
   font-weight: 700;
-  text-align: center;
+  text-align: left;
 }
 
 h3 {
@@ -23,6 +24,7 @@ h3 {
 }
 
 .button {
+  margin-top: 1.5em;
   text-transform: capitalize;
   color: #fafafa;
   background-color: #527480;
@@ -55,4 +57,10 @@ h3 {
 .poster {
   border: 3px solid #527480;
   border-radius: 5px;
+}
+
+.stars {
+  display: inline-block;
+  text-align: left;
+  margin-left: 1em;
 }

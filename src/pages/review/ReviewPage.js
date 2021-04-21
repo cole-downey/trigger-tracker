@@ -34,9 +34,8 @@ const ReviewPage = (props) => {
                 </Grid>
                 <Grid item xs={3} container direction="column" justify="space-evenly">
                     <Grid item style={{display: "inline-block", textAlign: "center"}}>
-                        <h2>Photosensitivity Review:</h2>
+                        <h2 className="center-align">Epilepsy Score:</h2>
                         <h1> {averageScore}/5</h1>
-
                         <div style={{display: "inline-block", textAlign: "center"}}>
                           <ReactStars
                             count={5}
@@ -53,10 +52,7 @@ const ReviewPage = (props) => {
                             activeColor='#ffff00'
                           />
                         </div>
-
                     </Grid>
-
-                    <Grid item></Grid>
                     <Button component={Link} to={url + "/form"}
                         disableElevation
                         className="button"
