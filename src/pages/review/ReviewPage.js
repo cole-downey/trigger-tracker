@@ -3,6 +3,7 @@ import { Grid, Button } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import ReactStars from "react-rating-stars-component";
 import CreateIcon from '@material-ui/icons/Create';
+import { ScoreCard } from '../../components/ScoreCard';
 import './ReviewPage.css';
 
 const ReviewPage = (props) => {
@@ -32,7 +33,7 @@ const ReviewPage = (props) => {
                         <h3>{time.start.m}:{time.start.s} - {time.stop.m}:{time.stop.s}</h3>
                     ))}
                 </Grid>
-                <Grid item xs={3} container direction="column" justify="space-evenly">
+                <Grid item xs={3} container direction="column" justify="space-evenly" alignItems="stretch">
                     <Grid item style={{ display: "inline-block", textAlign: "center" }}>
                         <h2 className="center-align">Epilepsy Score:</h2>
                         <div style={{ display: "inline-block", textAlign: "center" }}>
@@ -57,6 +58,7 @@ const ReviewPage = (props) => {
                         className="button"
                         size="large"
                         startIcon={<CreateIcon />}
+                        fullWidth
                     >
                         Write new review
                     </Button>
@@ -65,13 +67,13 @@ const ReviewPage = (props) => {
             <Grid container item
                 xs={12} md={12} lg={10}
                 spacing={6}
-                style={{ marginTop: '3em'}}
+                style={{ marginTop: '2em' }}
                 justify="center"
 
             >
                 {/* Add list of user reviews here */}
                 <Grid item xs={12}>
-                    <h1 className="center-align" style={{marginBottom: '0em'}}>User Reviews</h1>
+                    <h1 className="center-align" style={{ marginBottom: '0em' }}>Individual User Reviews ({numReviews})</h1>
                 </Grid>
                 {userReviews.map((review, key) => (
                     <Grid item container xs={12}
@@ -82,32 +84,17 @@ const ReviewPage = (props) => {
                         key={key}
                     >
                         <Grid item>
-                            <h3><strong>Name: </strong>{review.name}<strong> Epilepsy Score: </strong>{review.reviewScore}</h3>
+                            <h2 className="left-align"><strong>User Name: </strong>{review.name}</h2>
+                            <h3><strong>Date of review: </strong>{review.reviewDate}</h3>
                             <h3><strong>Review comment: </strong>{review.reviewText}</h3>
                             <h3><strong>Reported Timestamps: </strong></h3>
                             {review.timestamps.map((time, key) => (
                                 <h3 key={key}>{time.start.m}:{time.start.s} - {time.stop.m}:{time.stop.s}</h3>
                             ))}
                         </Grid>
-                        <Grid item xs={3} className="center-align">
-                            <h2 className="center-align">Epilepsy Score:</h2>
-                            <div style={{ display: "inline-block"}}>
-                                <ReactStars
-                                    count={5}
-                                    value={review.reviewScore}
-                                    edit={false}
-                                    size={36}
-                                    isHalf={true}
-                                    char={"★"}
-                                    emptyIcon={<i className='far fa-star'></i>}
-                                    halfIcon={<i className='fa fa-star-half-alt'></i>}
-                                    fullIcon={<i className='fa fa-star'></i>}
-                                    color='#527480'
-                                    activeColor='#ffff00'
-                                />
-                                <h1>({review.reviewScore}/5)</h1>
-                            </div>
-                        </Grid>
+                        <Grid item xs={3} className="center-align" >
+                        <ScoreCard score={review.reviewScore}/>
+                    </Grid>
                     </Grid>
 
                 ))}

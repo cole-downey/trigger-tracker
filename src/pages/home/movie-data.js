@@ -17,6 +17,7 @@
     userReviews: [
         {
             name: "John",
+            reviewDate: "mm/dd/yyyy",
             reviewScore: 5.0,
             reviewText: "",
             timestamps: [
@@ -51,6 +52,7 @@ export const data = [
         userReviews: [
             {
                 name: "John",
+                reviewDate: "06/26/2020",
                 reviewScore: 5.0,
                 reviewText: "I loved this movie. Was fantastic",
                 timestamps: [
@@ -62,6 +64,7 @@ export const data = [
             },
             {
                 name: "Jane",
+                reviewDate: "10/03/2018",
                 reviewScore: 4.0,
                 reviewText: "This movie was fine, not my favorite",
                 timestamps: [
@@ -93,6 +96,7 @@ export const data = [
         userReviews: [
             {
                 name: "John",
+                reviewDate: "06/26/2020",
                 reviewScore: 5.0,
                 reviewText: "I loved this movie. Was fantastic",
                 timestamps: [
@@ -104,6 +108,7 @@ export const data = [
             },
             {
                 name: "Jane",
+                reviewDate: "10/03/2018",
                 reviewScore: 4.0,
                 reviewText: "This movie was fine, not my favorite",
                 timestamps: [
@@ -135,6 +140,7 @@ export const data = [
         userReviews: [
             {
                 name: "John",
+                reviewDate: "06/26/2020",
                 reviewScore: 5.0,
                 reviewText: "I loved this movie. Was fantastic",
                 timestamps: [
@@ -146,6 +152,7 @@ export const data = [
             },
             {
                 name: "Jane",
+                reviewDate: "10/03/2018",
                 reviewScore: 4.0,
                 reviewText: "This movie was fine, not my favorite",
                 timestamps: [

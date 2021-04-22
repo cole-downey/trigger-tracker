@@ -25,9 +25,16 @@ h3 {
 .review {
   margin-top: 2.0em;
   padding: 2.0em;
+  color: #363636;
+  background-color: #abdded;
+  border: 3px solid #527480;
+  border-radius: 5px;
+}
+
+.score {
   color: #fafafa;
   background-color: #527480;
-  border: 3px solid #3c555e;
+  border: 3px solid #363636;
   border-radius: 5px;
 }
 
