@@ -10,10 +10,10 @@ const ReviewPage = (props) => {
     // to see what data is available or add more, check pages/home/movie-data.js
     // access members in data here:
     const [title, description, url, averageScore, pictureUrl, timestamps, length] = [data.title, data.description, data.url, data.averageScore, data.pictureUrl, data.timestamps, data.length];
-    const ratingChanged = (newRating) => { console.log(newRating); };
+    const [userReviews, numReviews] = [data.userReviews, data.userReviews.length];
 
     return (
-        <Grid container justify="center" style={{ marginTop: '5em', padding: '3em' }} >
+        <Grid container justify="center" style={{ padding: '3em' }} >
             <Grid container item
                 justify="space-around"
                 spacing={6}
@@ -40,7 +40,6 @@ const ReviewPage = (props) => {
                                 count={5}
                                 value={averageScore}
                                 edit={false}
-                                onChange={ratingChanged}
                                 size={36}
                                 isHalf={true}
                                 char={"★"}
@@ -50,7 +49,7 @@ const ReviewPage = (props) => {
                                 color='#527480'
                                 activeColor='#ffff00'
                             />
-                        <h1>({averageScore}/5)</h1>
+                            <h1>({averageScore}/5)</h1>
                         </div>
                     </Grid>
                     <Button component={Link} to={url + "/form"}
@@ -65,8 +64,54 @@ const ReviewPage = (props) => {
             </Grid>
             <Grid container item
                 xs={12} md={12} lg={10}
+                spacing={6}
+                style={{ marginTop: '3em'}}
+                justify="center"
+
             >
                 {/* Add list of user reviews here */}
+                <Grid item xs={12}>
+                    <h1 className="center-align" style={{marginBottom: '0em'}}>User Reviews</h1>
+                </Grid>
+                {userReviews.map((review, key) => (
+                    <Grid item container xs={12}
+                        className='review'
+                        justify="space-between"
+                        direction="row"
+                        alignItems="stretch"
+                        key={key}
+                    >
+                        <Grid item>
+                            <h3><strong>Name: </strong>{review.name}<strong> Epilepsy Score: </strong>{review.reviewScore}</h3>
+                            <h3><strong>Review comment: </strong>{review.reviewText}</h3>
+                            <h3><strong>Reported Timestamps: </strong></h3>
+                            {review.timestamps.map((time, key) => (
+                                <h3 key={key}>{time.start.m}:{time.start.s} - {time.stop.m}:{time.stop.s}</h3>
+                            ))}
+                        </Grid>
+                        <Grid item xs={3} className="center-align">
+                            <h2 className="center-align">Epilepsy Score:</h2>
+                            <div style={{ display: "inline-block"}}>
+                                <ReactStars
+                                    count={5}
+                                    value={review.reviewScore}
+                                    edit={false}
+                                    size={36}
+                                    isHalf={true}
+                                    char={"★"}
+                                    emptyIcon={<i className='far fa-star'></i>}
+                                    halfIcon={<i className='fa fa-star-half-alt'></i>}
+                                    fullIcon={<i className='fa fa-star'></i>}
+                                    color='#527480'
+                                    activeColor='#ffff00'
+                                />
+                                <h1>({review.reviewScore}/5)</h1>
+                            </div>
+                        </Grid>
+                    </Grid>
+
+                ))}
+
             </Grid>
         </Grid>
     )
