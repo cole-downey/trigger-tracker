@@ -10,7 +10,7 @@ const ReviewPage = (props) => {
     // to see what data is available or add more, check pages/home/movie-data.js
     // access members in data here:
     const [title, description, url, averageScore, pictureUrl, timestamps, length] = [data.title, data.description, data.url, data.averageScore, data.pictureUrl, data.timestamps, data.length];
-    const ratingChanged = (newRating) => {console.log(newRating);};
+    const ratingChanged = (newRating) => { console.log(newRating); };
 
     return (
         <Grid container justify="center" style={{ marginTop: '5em', padding: '3em' }} >
@@ -27,30 +27,30 @@ const ReviewPage = (props) => {
                     <h1>{title}</h1>
                     <h3><strong>Description: </strong>{description}</h3>
                     <h3><strong>Runtime: </strong>{length.h}h {length.m}m</h3>
-                    <h2 className="left-align"> Reported Triggering Timestamps:</h2>
+                    <h2 className="left-align">Reported Triggering Timestamps:</h2>
                     {timestamps.map((time, key) => (
                         <h3>{time.start.m}:{time.start.s} - {time.stop.m}:{time.stop.s}</h3>
                     ))}
                 </Grid>
                 <Grid item xs={3} container direction="column" justify="space-evenly">
-                    <Grid item style={{display: "inline-block", textAlign: "center"}}>
+                    <Grid item style={{ display: "inline-block", textAlign: "center" }}>
                         <h2 className="center-align">Epilepsy Score:</h2>
-                        <h1> {averageScore}/5</h1>
-                        <div style={{display: "inline-block", textAlign: "center"}}>
-                          <ReactStars
-                            count={5}
-                            value={averageScore}
-                            edit={false}
-                            onChange={ratingChanged}
-                            size={36}
-                            isHalf={true}
-                            char={"★"}
-                            emptyIcon={<i className='far fa-star'></i>}
-                            halfIcon={<i className='fa fa-star-half-alt'></i>}
-                            fullIcon={<i className='fa fa-star'></i>}
-                            color='#527480'
-                            activeColor='#ffff00'
-                          />
+                        <div style={{ display: "inline-block", textAlign: "center" }}>
+                            <ReactStars
+                                count={5}
+                                value={averageScore}
+                                edit={false}
+                                onChange={ratingChanged}
+                                size={36}
+                                isHalf={true}
+                                char={"★"}
+                                emptyIcon={<i className='far fa-star'></i>}
+                                halfIcon={<i className='fa fa-star-half-alt'></i>}
+                                fullIcon={<i className='fa fa-star'></i>}
+                                color='#527480'
+                                activeColor='#ffff00'
+                            />
+                        <h1>({averageScore}/5)</h1>
                         </div>
                     </Grid>
                     <Button component={Link} to={url + "/form"}

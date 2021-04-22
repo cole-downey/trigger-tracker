@@ -36,7 +36,6 @@ const ReviewInput = withStyles({
       },
       '& fieldset': {
         border: '2px solid #3c555e',
-        fontWeight: 700,
       },
       '&:hover fieldset': {
         border: '2px solid #3c555e',
@@ -54,7 +53,7 @@ const ReviewForm = (props) => {
   const data = props.data;
   // to see what data is available or add more, check pages/home/movie-data.js
   // access members in data here:
-  const [title, description, url] = [data.title, data.description, data.url];
+  const [title, description, url, timestamps, length] = [data.title, data.description, data.url, data.timestamps, data.length];
 
   const ratingChanged = (newRating) => { console.log(newRating); };
 
@@ -69,10 +68,15 @@ const ReviewForm = (props) => {
         <Grid item xs >
           <h1>{title}</h1>
           <h3><strong>Description: </strong>{description}</h3>
+          <h3><strong>Runtime: </strong>{length.h}h {length.m}m</h3>
+          <h2 className="left-align">Reported Triggering Timestamps:</h2>
+          {timestamps.map((time, key) => (
+            <h3>{time.start.m}:{time.start.s} - {time.stop.m}:{time.stop.s}</h3>
+          ))}
         </Grid>
-        <Grid item xs={5} container direction="column" justify="space-evenly" >
+        <Grid item xs={5} container direction="column" justify="flex-start" >
           <Grid item >
-            <h2>Epilepsy Score:</h2>
+            <h2 className="left-align-indent">Epilepsy Score:</h2>
             <div className='stars'>
               <ReactStars
                 count={5}
@@ -89,7 +93,7 @@ const ReviewForm = (props) => {
             </div>
           </Grid>
           <Grid item>
-            <h2> Enter Timestamps </h2>
+            <h2 className="left-align-indent"> Enter Timestamps </h2>
             <ReviewInput
               id='timestamps-input'
               variant="outlined"
@@ -109,7 +113,7 @@ const ReviewForm = (props) => {
             />
           </Grid>
           <Grid item>
-            <h2> Enter Comment </h2>
+            <h2 className="left-align-indent"> Enter Comment </h2>
             <div >
               <ReviewInput
                 id='comment-input'

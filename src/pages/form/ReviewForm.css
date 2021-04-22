@@ -1,66 +1,10 @@
-body {
-  margin: 0;
-}
-h1 {
-  font-weight: 700;
-  text-align: center;
-}
-h2 {
-  margin-left: 1em;
-  font-weight: 700;
+.left-align-indent{
+  margin-left: 0.5em;
   text-align: left;
-}
-
-h3 {
-  font-weight: 400;
-  text-align: left;
-}
-
-.summary {
-  padding: 1.0em;
-  background-color: #90C2D2;
-  border: 3px solid #527480;
-  border-radius: 5px;
-}
-
-.button {
-  margin-top: 1.5em;
-  text-transform: capitalize;
-  color: #fafafa;
-  background-color: #527480;
-  border: 3px solid #3c555e;
-}
-.button:hover {
-  color: #3c555e;
-  background-color: #fafafa;
-}
-
-.container div {
-  padding: 1%;
-  box-sizing: border-box;
-  min-height: 500px;
-  outline: black;
-}
-.left-align{
-  text-align: left;
-}
-.center-align{
-  text-align: center;
-}
-.center-col {
-/*          background-color: pink; */
-  width: 25%;
-    height: 500px;
-  float: left;
-}
-
-.poster {
-  border: 3px solid #527480;
-  border-radius: 5px;
 }
 
 .stars {
   display: inline-block;
   text-align: left;
-  margin-left: 1em;
+  margin-left: 0.5em;
 }

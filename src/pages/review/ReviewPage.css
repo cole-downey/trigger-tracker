@@ -23,6 +23,7 @@ h3 {
 }
 
 .button {
+  margin-top: 1.5em;
   text-transform: capitalize;
   color: #fafafa;
   background-color: #527480;
