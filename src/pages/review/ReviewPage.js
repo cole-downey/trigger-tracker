@@ -52,7 +52,6 @@ const ReviewPage = (props) => {
             </Grid>
             <Grid container item
                 xs={12} md={12} lg={10}
-                spacing={6}
                 style={{ marginTop: '2em' }}
                 justify="center"
             >
