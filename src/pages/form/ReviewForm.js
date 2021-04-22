@@ -58,7 +58,7 @@ const ReviewForm = (props) => {
   const ratingChanged = (newRating) => { console.log(newRating); };
 
   return (
-    <Grid container justify="center" style={{ marginTop: '5em', padding: '3em' }} >
+    <Grid container justify="center" style={{ padding: '3em' }} >
       <Grid container item
         justify="space-around"
         spacing={6}

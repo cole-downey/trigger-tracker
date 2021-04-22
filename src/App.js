@@ -15,8 +15,8 @@ function App() {
     <StylesProvider injectFirst>
       <CssBaseline />
       <Router>
-        {<div><h1>Trigger Tracker: A Movie Photosensitivity Review Site</h1>
-          </div>}
+        <div style={{marginBottom: '3em'}}><h1>Trigger Tracker: A Movie Photosensitivity Review Site</h1>
+          </div>
         <Switch>
           <Route exact path={'/'} >
             <Home data={data} />

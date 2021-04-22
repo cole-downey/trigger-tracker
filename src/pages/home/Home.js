@@ -40,7 +40,7 @@ const SearchField = withStyles({
 const Home = (props) => {
     const data = props.data;
     return (
-        <Grid container justify="center" style={{ marginTop: '3em' }} >
+        <Grid container justify="center">
             <Grid container
                 justify="center"
                 spacing={6}
