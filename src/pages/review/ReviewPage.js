@@ -34,34 +34,20 @@ const ReviewPage = (props) => {
                     ))}
                 </Grid>
                 <Grid item xs={3} container direction="column" justify="space-evenly" alignItems="stretch">
-                    <Grid item style={{ display: "inline-block", textAlign: "center" }}>
-                        <h2 className="center-align">Epilepsy Score:</h2>
-                        <div style={{ display: "inline-block", textAlign: "center" }}>
-                            <ReactStars
-                                count={5}
-                                value={averageScore}
-                                edit={false}
-                                size={36}
-                                isHalf={true}
-                                char={"★"}
-                                emptyIcon={<i className='far fa-star'></i>}
-                                halfIcon={<i className='fa fa-star-half-alt'></i>}
-                                fullIcon={<i className='fa fa-star'></i>}
-                                color='#527480'
-                                activeColor='#ffff00'
-                            />
-                            <h1>({averageScore}/5)</h1>
-                        </div>
+                    <Grid item container >
+                        <ScoreCard score={averageScore} />
                     </Grid>
-                    <Button component={Link} to={url + "/form"}
-                        disableElevation
-                        className="button"
-                        size="large"
-                        startIcon={<CreateIcon />}
-                        fullWidth
-                    >
-                        Write new review
-                    </Button>
+                    <Grid item>
+                        <Button component={Link} to={url + "/form"}
+                            disableElevation
+                            className="button"
+                            size="large"
+                            startIcon={<CreateIcon />}
+                            fullWidth
+                        >
+                            Write new review
+                        </Button>
+                    </Grid>
                 </Grid>
             </Grid>
             <Grid container item
@@ -69,7 +55,6 @@ const ReviewPage = (props) => {
                 spacing={6}
                 style={{ marginTop: '2em' }}
                 justify="center"
-
             >
                 {/* Add list of user reviews here */}
                 <Grid item xs={12}>
@@ -82,6 +67,7 @@ const ReviewPage = (props) => {
                         direction="row"
                         alignItems="stretch"
                         key={key}
+                        spacing={6}
                     >
                         <Grid item>
                             <h2 className="left-align"><strong>User Name: </strong>{review.name}</h2>
@@ -93,8 +79,8 @@ const ReviewPage = (props) => {
                             ))}
                         </Grid>
                         <Grid item xs={3} className="center-align" >
-                        <ScoreCard score={review.reviewScore}/>
-                    </Grid>
+                            <ScoreCard score={review.reviewScore} />
+                        </Grid>
                     </Grid>
 
                 ))}

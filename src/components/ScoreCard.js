@@ -5,7 +5,7 @@ import './Card.css';
 
 
 export const ScoreCard = (props) => {
-    const score = props.score;
+    const [score, editable, onChange] = [props.score, props.editable, props.onChange];
     return (
         <Grid item xs={12} className="center-align" >
             <div className="score-card">
@@ -14,7 +14,8 @@ export const ScoreCard = (props) => {
                     <ReactStars
                         count={5}
                         value={score}
-                        edit={false}
+                        edit={(editable) ? true : false}
+                        onChange={onChange}
                         size={36}
                         isHalf={true}
                         char={"★"}

@@ -31,23 +31,18 @@ h3 {
   border-radius: 5px;
 }
 
-.score {
-  color: #fafafa;
-  background-color: #527480;
-  border: 3px solid #363636;
-  border-radius: 5px;
-}
-
 .button {
   margin-top: 1.5em;
   text-transform: capitalize;
   color: #fafafa;
   background-color: #527480;
-  border: 3px solid #3c555e;
+  border: 3px solid #363636;
+  /*border: 3px solid #3c555e;*/
 }
 .button:hover {
   color: #3c555e;
   background-color: #fafafa;
+  border: 3px solid #3c555e;
 }
 
 .container div {
