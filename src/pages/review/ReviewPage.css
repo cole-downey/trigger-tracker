@@ -86,6 +86,49 @@ h3 {
   display: inline-block;
 }
 
+/* Trailer popup */
+
+.popup-content {
+  background: transparent;
+  border: none;
+}
+
+.popup-overlay {
+  background:rgba(255, 255, 255, 0.5);
+}
+
+.modal {
+  background-color: #90C2D2;
+  border: 3px solid #527480;
+  border-radius: 10px;
+  text-align: center;
+  padding: 1em;
+}
+.modal > .header {
+  width: 100%;
+  text-align: center;
+  margin-top: 0;
+}
+.modal > .content {
+  position: relative;
+  padding-top: 56.25%;
+  text-align: center;
+  
+}
+
+.modal > .content > .aspect-player {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding-top: 0;
+  border: 3px solid #363636;
+  border-radius: 3px;
+}
+.modal > .actions {
+  width: 100%;
+  text-align: center;
+}
+
 /*
 border: 3px solid #773740;
 background-color: #a31a2f;

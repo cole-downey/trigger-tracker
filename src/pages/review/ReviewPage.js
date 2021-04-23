@@ -53,17 +53,14 @@ const ReviewPage = (props) => {
                       Watch Trailer
                     </Button>}
                       modal
-                      nested
+                      
                     >
                       {close => (
-                        <div className="modal">
-                          <button className="close" onClick={close}>
-                            &times;
-                          </button>
-                          <div className="header"> {title} Trailer </div>
+                        <div className="modal" >
+                          <h2 className="header"><strong>{title} Trailer</strong></h2>
                           <div className="content">
                             {' '}
-                            <ReactPlayer width='100%' url={trailer} />
+                            <ReactPlayer className="aspect-player" width='100%' height='100%' url={trailer} />
                           </div>
                           <div className="actions">
                             <Button 
