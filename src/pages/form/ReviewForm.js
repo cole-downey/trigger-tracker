@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Grid, Button, TextField, InputAdornment } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
@@ -8,6 +8,7 @@ import TimerOutlinedIcon from '@material-ui/icons/TimerOutlined';
 import RateReviewOutlinedIcon from '@material-ui/icons/RateReviewOutlined';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
+import { ScoreCard } from '../../components/ScoreCard';
 import './ReviewForm.css';
 
 const ReviewInput = withStyles({
@@ -52,12 +53,13 @@ const ReviewInput = withStyles({
 })(TextField);
 
 const ReviewForm = (props) => {
+  const [score, setScore] = useState(0);
   const data = props.data;
   // to see what data is available or add more, check pages/home/movie-data.js
   // access members in data here:
   const [title, description, url, timestamps, length] = [data.title, data.description, data.url, data.timestamps, data.length];
 
-  const ratingChanged = (newRating) => { console.log(newRating); };
+  const ratingChanged = (newRating) => { setScore(newRating); };
 
   return (
     <Grid container justify="center" style={{ padding: '3em' }} >
@@ -76,23 +78,11 @@ const ReviewForm = (props) => {
             <h3 className="timestamp">{time.start.m}:{time.start.s} - {time.stop.m}:{time.stop.s}</h3>
           ))}
         </Grid>
-        <Grid item xs={5} container direction="column" justify="flex-start" >
-          <Grid item >
-            <h2 className="left-align-indent">Epilepsy Score:</h2>
-            <div className='stars'>
-              <ReactStars
-                count={5}
-                onChange={ratingChanged}
-                size={36}
-                isHalf={true}
-                char={"★"}
-                emptyIcon={<i className='far fa-star'></i>}
-                halfIcon={<i className='fa fa-star-half-alt'></i>}
-                fullIcon={<i className='fa fa-star'></i>}
-                color='#527480'
-                activeColor='#ffff00'
-              />
-            </div>
+        <Grid item xs={5} container direction="column" justify="flex-start" alignItems="stretch">
+          <Grid item container xs={12} justify="center">
+            <Grid item container xs={7}>
+              <ScoreCard score={score} editable onChange={ratingChanged} />
+            </Grid>
           </Grid>
           <Grid item>
             <h2 className="left-align-indent"> Enter Timestamps </h2>
@@ -146,38 +136,38 @@ const ReviewForm = (props) => {
               className="button"
               size="large"
               startIcon={<CreateIcon />}
-              style={{marginTop: '1.52em'}}
+              style={{ marginTop: '1.52em' }}
             >
               Submit Review
             </Button>}
-              modal
-              nested
-            >
-              {close => (
-                <div className="modal">
-                  <h2 className="header"><strong>Review Submitted</strong></h2>
-                  <div className="content">
-                    {' '}
+            modal
+            nested
+          >
+            {close => (
+              <div className="modal">
+                <h2 className="header"><strong>Review Submitted</strong></h2>
+                <div className="content">
+                  {' '}
                     Your review has been submitted.
                     Please wait until a moderator approves your review.
                     This is to ensure users are not abusing the timestamp
                     submission feature. It may take up to 24 hours for your
                     review to be approved.
                   </div>
-                  <div className="actions">
-                    <Button component={Link} to={url}
-                      disableElevation
-                      className="button"
-                      size="large"
-                      style={{maxWidth: '50%'}}
-                      fullWidth
-                    >
-                      Okay
+                <div className="actions">
+                  <Button component={Link} to={url}
+                    disableElevation
+                    className="button"
+                    size="large"
+                    style={{ maxWidth: '50%' }}
+                    fullWidth
+                  >
+                    Okay
                     </Button>
-                  </div>
                 </div>
-              )}
-            </Popup>
+              </div>
+            )}
+          </Popup>
 
         </Grid>
       </Grid>

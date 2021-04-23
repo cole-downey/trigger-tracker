@@ -18,6 +18,10 @@
     font-weight: 700;
 }
 
+.react-stars:focus {
+    outline: none !important;
+}
+
 .stars-section {
     display: inline-block; 
     border-top: 2px solid #363636;
@@ -30,4 +34,5 @@
     background-color: #527480;
     border: 3px solid #363636;
     border-radius: 5px;
+    min-width: 195px;
   }
