@@ -2,6 +2,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Link,
 } from 'react-router-dom';
 import './App.css';
 import Home from './pages/home';
@@ -15,8 +16,13 @@ function App() {
     <StylesProvider injectFirst>
       <CssBaseline />
       <Router>
-        <div style={{marginBottom: '3em'}}><h1>Trigger Tracker: A Movie Photosensitivity Review Site</h1>
-          </div>
+        <div style={{ marginBottom: '3em' }}>
+          <Link to='/' className="header-link">
+            <h1>
+              Trigger Tracker: A Movie Photosensitivity Review Site
+            </h1>
+          </Link>
+        </div>
         <Switch>
           <Route exact path={'/'} >
             <Home data={data} />
