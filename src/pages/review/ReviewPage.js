@@ -66,7 +66,8 @@ const ReviewPage = (props) => {
                             <ReactPlayer width='100%' url={data["trailerUrl"]} />
                           </div>
                           <div className="actions">
-                            <Button component={Link} to={url}
+                            <Button className="close"
+                              onClick={close}
                               disableElevation
                               className="button"
                               size="large"
