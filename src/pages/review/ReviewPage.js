@@ -60,7 +60,7 @@ const ReviewPage = (props) => {
                                 <div className="modal" >
                                     <h2 className="header"><strong>{title} Trailer</strong></h2>
                                     <div className="aspect-content">
-                                        <ReactPlayer className="aspect-player" width='100%' height='100%' url={trailer} />
+                                        <ReactPlayer className="aspect-player" controls width='100%' height='100%' url={trailer} />
                                     </div>
                                     <div className="actions">
                                         <Button className="button" style={{ maxWidth: '50%' }}

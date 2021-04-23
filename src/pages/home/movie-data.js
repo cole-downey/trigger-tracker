@@ -159,7 +159,7 @@ export const data = [
         url: '/alien',
         description: "In deep space, the crew of the commercial starship Nostromo is awakened from their cryo-sleep capsules halfway through their journey home to investigate a distress call from an alien vessel. The terror begins when the crew encounters a nest of eggs inside the alien ship. An organism from inside an egg leaps out and attaches itself to one of the crew, causing him to fall into a coma.",
         pictureUrl: "https://m.media-amazon.com/images/M/MV5BMmQ2MmU3NzktZjAxOC00ZDZhLTk4YzEtMDMyMzcxY2IwMDAyXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UY1200_CR92,0,630,1200_AL_.jpg",
-        trailerUrl: "https://www.youtube.com/watch?v=svnAD0TApb8",
+        trailerUrl: "https://youtu.be/jQ5lPt9edzQ",
         length: { h: 1, m: 57 },
         averageScore: 3.5,
         timestamps: [
