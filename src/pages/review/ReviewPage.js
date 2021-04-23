@@ -40,7 +40,7 @@ const ReviewPage = (props) => {
                     <h3><strong>Runtime: </strong>{length.h}h {length.m}m</h3>
                     <h2 className="left-align">Reported Triggering Timestamps:</h2>
                     {timestamps.map((time, key) => (
-                        <h3>{time.start.m}:{time.start.s} - {time.stop.m}:{time.stop.s}</h3>
+                      <div style={{background: "#990033", width: "140px", height: "60px", borderRadius: "20px", fontSize: "15px", textAlign: "center", display: "inline-block", alignItems: "center", color: "#90C2D2"}}><h3 style={{textAlign: "center", display: "inline-block", alignItems: "center"}}>{time.start.m}:{time.start.s} - {time.stop.m}:{time.stop.s}</h3></div>
                     ))}
                 </Grid>
                 <Grid item xs={3} container direction="column" justify="space-evenly" alignItems="stretch">
@@ -149,7 +149,7 @@ const ReviewPage = (props) => {
                             <h3><strong>Review comment: </strong>{review.reviewText}</h3>
                             <h3><strong>Reported Timestamps: </strong></h3>
                             {review.timestamps.map((time, key) => (
-                                <h3 key={key}>{time.start.m}:{time.start.s} - {time.stop.m}:{time.stop.s}</h3>
+                                <div style={{width: "150px", height: "40px", fontSize: "15px", textAlign: "center", display: "inline-block", alignItems: "center"}}><h3 key={key}>({time.start.m}:{time.start.s} - {time.stop.m}:{time.stop.s})</h3></div>
                             ))}
                         </Grid>
                         <Grid item xs={3} className="center-align" >
