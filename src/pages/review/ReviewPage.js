@@ -139,7 +139,7 @@ const ReviewPage = (props) => {
                         key={key}
                         spacing={6}
                     >
-                        <Grid item>
+                        <Grid item xs={9}>
                             <h2 className="left-align"><strong>User Name: </strong>{review.name}</h2>
                             <h3><strong>Date of review: </strong>{review.reviewDate}</h3>
                             <h3><strong>Review comment: </strong>{review.reviewText}</h3>
