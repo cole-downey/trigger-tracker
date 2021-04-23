@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Button } from '@material-ui/core';
+import TimerOutlinedIcon from '@material-ui/icons/TimerOutlined';
 import { Link } from 'react-router-dom';
-import ReactStars from "react-rating-stars-component";
 import CreateIcon from '@material-ui/icons/Create';
 import { ScoreCard } from '../../components/ScoreCard';
 import Popup from 'reactjs-popup';
@@ -40,7 +40,7 @@ const ReviewPage = (props) => {
                     <h3><strong>Runtime: </strong>{length.h}h {length.m}m</h3>
                     <h2 className="left-align">Reported Triggering Timestamps:</h2>
                     {timestamps.map((time, key) => (
-                      <div style={{background: "#990033", width: "140px", height: "60px", borderRadius: "20px", fontSize: "15px", textAlign: "center", display: "inline-block", alignItems: "center", color: "#90C2D2"}}><h3 style={{textAlign: "center", display: "inline-block", alignItems: "center"}}>{time.start.m}:{time.start.s} - {time.stop.m}:{time.stop.s}</h3></div>
+                      <h3 className="timestamp">{time.start.m}:{time.start.s} - {time.stop.m}:{time.stop.s}</h3>
                     ))}
                 </Grid>
                 <Grid item xs={3} container direction="column" justify="space-evenly" alignItems="stretch">
@@ -63,13 +63,13 @@ const ReviewPage = (props) => {
                           <div className="header"> {title} Trailer </div>
                           <div className="content">
                             {' '}
-                            <ReactPlayer width='100%' url={data["trailerUrl"]} />
+                            <ReactPlayer width='100%' url={trailer} />
                           </div>
                           <div className="actions">
-                            <Button className="close"
+                            <Button 
+                            className="close button"
                               onClick={close}
                               disableElevation
-                              className="button"
                               size="large"
                             >
                               Close Trailer
@@ -149,7 +149,7 @@ const ReviewPage = (props) => {
                             <h3><strong>Review comment: </strong>{review.reviewText}</h3>
                             <h3><strong>Reported Timestamps: </strong></h3>
                             {review.timestamps.map((time, key) => (
-                                <div style={{width: "150px", height: "40px", fontSize: "15px", textAlign: "center", display: "inline-block", alignItems: "center"}}><h3 key={key}>({time.start.m}:{time.start.s} - {time.stop.m}:{time.stop.s})</h3></div>
+                                <h3 className="timestamp" key={key}>{time.start.m}:{time.start.s} - {time.stop.m}:{time.stop.s}</h3>
                             ))}
                         </Grid>
                         <Grid item xs={3} className="center-align" >

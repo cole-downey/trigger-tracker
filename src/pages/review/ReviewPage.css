@@ -32,19 +32,6 @@ h3 {
   border-radius: 5px;
 }
 
-.button {
-  margin-top: 1.5em;
-  text-transform: capitalize;
-  color: #fafafa;
-  background-color: #527480;
-  border: 3px solid #363636;
-  /*border: 3px solid #3c555e;*/
-}
-.button:hover {
-  color: #3c555e;
-  background-color: #fafafa;
-  border: 3px solid #3c555e;
-}
 
 .container div {
   padding: 1%;
@@ -59,9 +46,9 @@ h3 {
   text-align: center;
 }
 .center-col {
-/*          background-color: pink; */
+  /*          background-color: pink; */
   width: 25%;
-    height: 500px;
+  height: 500px;
   float: left;
 }
 
@@ -69,3 +56,39 @@ h3 {
   border: 3px solid #527480;
   border-radius: 5px;
 }
+
+.button {
+  margin-top: 1.5em;
+  text-transform: capitalize;
+  color: #fafafa;
+  background-color: #527480;
+  border: 3px solid #363636;
+  /*border: 3px solid #3c555e;*/
+}
+
+.button:hover {
+  color: #3c555e;
+  background-color: #fafafa;
+  border: 3px solid #3c555e;
+}
+
+.timestamp {
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #c6f1ff;
+  font-weight: 500;
+  background-color: #885874;
+  border: 3px solid #5e3c50;
+  padding: 0.75em;
+  margin-right: 0.75em;
+  border-radius: 5px;
+  text-align: center;
+  display: inline-block;
+}
+
+/*
+border: 3px solid #773740;
+background-color: #a31a2f;
+
+border: 3px solid #990033;
+*/
