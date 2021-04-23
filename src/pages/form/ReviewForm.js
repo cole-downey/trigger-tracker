@@ -146,6 +146,7 @@ const ReviewForm = (props) => {
               className="button"
               size="large"
               startIcon={<CreateIcon />}
+              style={{marginTop: '1.52em'}}
             >
               Submit Review
             </Button>}
@@ -154,10 +155,7 @@ const ReviewForm = (props) => {
             >
               {close => (
                 <div className="modal">
-                  <button className="close" onClick={close}>
-                    &times;
-                  </button>
-                  <div className="header"> Review Submitted </div>
+                  <h2 className="header"><strong>Review Submitted</strong></h2>
                   <div className="content">
                     {' '}
                     Your review has been submitted.
@@ -171,6 +169,8 @@ const ReviewForm = (props) => {
                       disableElevation
                       className="button"
                       size="large"
+                      style={{maxWidth: '50%'}}
+                      fullWidth
                     >
                       Okay
                     </Button>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Grid, Button } from '@material-ui/core';
-import TimerOutlinedIcon from '@material-ui/icons/TimerOutlined';
+import TheatersIconRounded from '@material-ui/icons/TheatersRounded';
+import MovieOutlinedIcon from '@material-ui/icons/MovieOutlined';
 import { Link } from 'react-router-dom';
 import CreateIcon from '@material-ui/icons/Create';
 import { ScoreCard } from '../../components/ScoreCard';
@@ -9,9 +10,9 @@ import ReactPlayer from "react-player";
 import 'reactjs-popup/dist/index.css';
 import './ReviewPage.css';
 import {
-  FacebookShareButton,
-  TwitterShareButton,
-  EmailShareButton,
+    FacebookShareButton,
+    TwitterShareButton,
+    EmailShareButton,
 } from "react-share";
 
 import { FacebookIcon, TwitterIcon, EmailIcon } from "react-share";
@@ -40,72 +41,70 @@ const ReviewPage = (props) => {
                     <h3><strong>Runtime: </strong>{length.h}h {length.m}m</h3>
                     <h2 className="left-align">Reported Triggering Timestamps:</h2>
                     {timestamps.map((time, key) => (
-                      <h3 className="timestamp">{time.start.m}:{time.start.s} - {time.stop.m}:{time.stop.s}</h3>
+                        <h3 className="timestamp">{time.start.m}:{time.start.s} - {time.stop.m}:{time.stop.s}</h3>
                     ))}
                 </Grid>
-                <Grid item xs={3} container direction="column" justify="space-evenly" alignItems="stretch">
-                  <Popup
-                    trigger={<Button
-                      disableElevation
-                      className="button"
-                      size="large"
-                    >
-                      Watch Trailer
-                    </Button>}
-                      modal
-                      
-                    >
-                      {close => (
-                        <div className="modal" >
-                          <h2 className="header"><strong>{title} Trailer</strong></h2>
-                          <div className="content">
-                            {' '}
-                            <ReactPlayer className="aspect-player" width='100%' height='100%' url={trailer} />
-                          </div>
-                          <div className="actions">
-                            <Button 
-                            className="close button"
-                              onClick={close}
-                              disableElevation
-                              size="large"
-                            >
-                              Close Trailer
-                            </Button>
-                          </div>
-                        </div>
-                      )}
-                    </Popup>
+                <Grid item xs={3} container direction="column" justify="space-between" alignItems="stretch">
+                    <Grid item>
+                        <Popup
+                            modal
+                            trigger={<Button
+                                disableElevation
+                                className="button"
+                                size="large"
+                                fullWidth
+                                startIcon={<MovieOutlinedIcon />}
+                            >Watch Trailer</Button>}
+                        >
+                            {close => (
+                                <div className="modal" >
+                                    <h2 className="header"><strong>{title} Trailer</strong></h2>
+                                    <div className="aspect-content">
+                                        <ReactPlayer className="aspect-player" width='100%' height='100%' url={trailer} />
+                                    </div>
+                                    <div className="actions">
+                                        <Button className="button" style={{ maxWidth: '50%' }}
+                                            onClick={close}
+                                            disableElevation size="large" fullWidth
+                                        >
+                                            Close Trailer
+                                        </Button>
+                                    </div>
+                                </div>
+                            )}
+                        </Popup>
+                    </Grid>
 
                     <Grid item container >
                         <ScoreCard score={averageScore} />
                     </Grid>
+                    <Grid item container justify="space-evenly" >
+                        <Grid item>
+                            <TwitterShareButton
+                                title={"Let's watch this movie together: " + title}
+                                url={"https://triggertracker.com" + url}>
+                                <TwitterIcon size={36} round />
+                            </TwitterShareButton>
+                        </Grid>
 
+                        <Grid item>
+                            <FacebookShareButton
+                                url={"https://triggertracker.com" + url}
+                                quote={"Let's watch this movie together: " + title}>
+                                <FacebookIcon size={36} round />
+                            </FacebookShareButton>
+                        </Grid>
 
-                    <Grid item container style={{alignItems: "center", textAlign: "center", padding: "0em 4.5em 0em 4.5em"}}>
-                    <TwitterShareButton
-                      title={
-                        "Let's watch this movie together: " + data["title"]
-                      }
-                      url={"https://triggertracker.com/godzilla"}>
-                      <TwitterIcon size={36} round />
-                    </TwitterShareButton>
-
-                    <FacebookShareButton
-                      url={"https://triggertracker.com/godzilla"}
-                      quote={
-                        "Let's watch this movie together: " + data["title"]
-                      }>
-                      <FacebookIcon size={36} round />
-                    </FacebookShareButton>
-
-                    <EmailShareButton
-                      subject={"Let's watch this movie together: " + data["title"]}
-                      body={
-                        "I found this movie on Trigger Tracker: "
-                        + data["description"]
-                      }>
-                      <EmailIcon size={36} round />
-                    </EmailShareButton>
+                        <Grid item>
+                            <EmailShareButton
+                                subject={"Let's watch this movie together: " + data["title"]}
+                                body={
+                                    "I found this movie on Trigger Tracker: "
+                                    + description
+                                }>
+                                <EmailIcon size={36} round />
+                            </EmailShareButton>
+                        </Grid>
                     </Grid>
 
 
