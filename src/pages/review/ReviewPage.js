@@ -4,13 +4,23 @@ import { Link } from 'react-router-dom';
 import ReactStars from "react-rating-stars-component";
 import CreateIcon from '@material-ui/icons/Create';
 import { ScoreCard } from '../../components/ScoreCard';
+import Popup from 'reactjs-popup';
+import ReactPlayer from "react-player";
+import 'reactjs-popup/dist/index.css';
 import './ReviewPage.css';
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  EmailShareButton,
+} from "react-share";
+
+import { FacebookIcon, TwitterIcon, EmailIcon } from "react-share";
 
 const ReviewPage = (props) => {
     const data = props.data;
     // to see what data is available or add more, check pages/home/movie-data.js
     // access members in data here:
-    const [title, description, url, averageScore, pictureUrl, timestamps, length] = [data.title, data.description, data.url, data.averageScore, data.pictureUrl, data.timestamps, data.length];
+    const [title, description, url, averageScore, pictureUrl, timestamps, length, trailer] = [data.title, data.description, data.url, data.averageScore, data.pictureUrl, data.timestamps, data.length, data.trailerUrl];
     const [userReviews, numReviews] = [data.userReviews, data.userReviews.length];
 
     return (
@@ -34,9 +44,73 @@ const ReviewPage = (props) => {
                     ))}
                 </Grid>
                 <Grid item xs={3} container direction="column" justify="space-evenly" alignItems="stretch">
+                  <Popup
+                    trigger={<Button
+                      disableElevation
+                      className="button"
+                      size="large"
+                    >
+                      Watch Trailer
+                    </Button>}
+                      modal
+                      nested
+                    >
+                      {close => (
+                        <div className="modal">
+                          <button className="close" onClick={close}>
+                            &times;
+                          </button>
+                          <div className="header"> {title} Trailer </div>
+                          <div className="content">
+                            {' '}
+                            <ReactPlayer width='100%' url={data["trailerUrl"]} />
+                          </div>
+                          <div className="actions">
+                            <Button component={Link} to={url}
+                              disableElevation
+                              className="button"
+                              size="large"
+                            >
+                              Close Trailer
+                            </Button>
+                          </div>
+                        </div>
+                      )}
+                    </Popup>
+
                     <Grid item container >
                         <ScoreCard score={averageScore} />
                     </Grid>
+
+
+                    <Grid item container style={{alignItems: "center", textAlign: "center", padding: "0em 4.5em 0em 4.5em"}}>
+                    <TwitterShareButton
+                      title={
+                        "Let's watch this movie together: " + data["title"]
+                      }
+                      url={"https://triggertracker.com/godzilla"}>
+                      <TwitterIcon size={36} round />
+                    </TwitterShareButton>
+
+                    <FacebookShareButton
+                      url={"https://triggertracker.com/godzilla"}
+                      quote={
+                        "Let's watch this movie together: " + data["title"]
+                      }>
+                      <FacebookIcon size={36} round />
+                    </FacebookShareButton>
+
+                    <EmailShareButton
+                      subject={"Let's watch this movie together: " + data["title"]}
+                      body={
+                        "I found this movie on Trigger Tracker: "
+                        + data["description"]
+                      }>
+                      <EmailIcon size={36} round />
+                    </EmailShareButton>
+                    </Grid>
+
+
                     <Grid item>
                         <Button component={Link} to={url + "/form"}
                             disableElevation

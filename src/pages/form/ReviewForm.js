@@ -6,6 +6,8 @@ import ReactStars from "react-rating-stars-component";
 import CreateIcon from '@material-ui/icons/Create';
 import TimerOutlinedIcon from '@material-ui/icons/TimerOutlined';
 import RateReviewOutlinedIcon from '@material-ui/icons/RateReviewOutlined';
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 import './ReviewForm.css';
 
 const ReviewInput = withStyles({
@@ -134,14 +136,49 @@ const ReviewForm = (props) => {
               />
             </div>
           </Grid>
-          <Button component={Link} to={url}
-            disableElevation
-            className="button"
-            size="large"
-            startIcon={<CreateIcon />}
-          >
-            Submit Review
-          </Button>
+
+
+          {/* Clicking "Submit Review" opens a pop up */}
+          {/* Once the user closes the pop up, it goes to the Review Page */}
+          <Popup
+            trigger={<Button
+              disableElevation
+              className="button"
+              size="large"
+              startIcon={<CreateIcon />}
+            >
+              Submit Review
+            </Button>}
+              modal
+              nested
+            >
+              {close => (
+                <div className="modal">
+                  <button className="close" onClick={close}>
+                    &times;
+                  </button>
+                  <div className="header"> Review Submitted </div>
+                  <div className="content">
+                    {' '}
+                    Your review has been submitted.
+                    Please wait until a moderator approves your review.
+                    This is to ensure users are not abusing the timestamp
+                    submission feature. It may take up to 24 hours for your
+                    review to be approved.
+                  </div>
+                  <div className="actions">
+                    <Button component={Link} to={url}
+                      disableElevation
+                      className="button"
+                      size="large"
+                    >
+                      Okay
+                    </Button>
+                  </div>
+                </div>
+              )}
+            </Popup>
+
         </Grid>
       </Grid>
     </Grid>
